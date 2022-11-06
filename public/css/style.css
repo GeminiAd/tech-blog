@@ -1,5 +1,6 @@
 :root {
     --dark: rgb(43, 21, 5);
+    --dark-hover: rgb(20, 9, 2);
     --light: honeydew;
     --title-box-shadow: lightgrey;
 
@@ -21,7 +22,7 @@ ul {
 }
 
 li {
-    color: var(--light);
+    /* color: var(--light); */
 
     display: inline;
 
@@ -68,4 +69,37 @@ h1 {
 
 .card-body {
     border: thick solid var(--dark);
+}
+
+.form-control:focus {
+    border-color: var(--dark);
+    box-shadow: none;
+    outline: var(--dark) solid 1px;
+}
+
+/* Change from bootstraps primary color to our own custom color scheme. */
+.btn-custom {
+    border: none;
+
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+/* Prevent color change to bootstrap's primary button color on hover */
+.btn-custom:hover {
+    background-color: var(--dark-hover);
+}
+
+/* Prevent color change to bootstrap's primary button color on mousedown hold */
+.btn-custom:active:hover {
+    background-color: var(--dark-hover);
+}
+
+a {
+    text-decoration: none;
+    color: var(--light);
+}
+
+a:hover {
+    color: var(--light);
 }
