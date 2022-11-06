@@ -22,7 +22,7 @@ ul {
 }
 
 li {
-    color: var(--light);
+    /* color: var(--light); */
 
     display: inline;
 
@@ -93,4 +93,13 @@ h1 {
 /* Prevent color change to bootstrap's primary button color on mousedown hold */
 .btn-custom:active:hover {
     background-color: var(--dark-hover);
+}
+
+a {
+    text-decoration: none;
+    color: var(--light);
+}
+
+a:hover {
+    color: var(--light);
 }
