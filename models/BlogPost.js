@@ -33,7 +33,9 @@ BlogPost.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'blog_post'
+        modelName: 'blog_post',
+        createdAt: "created_at",
+        updatedAt: "updated_at"
     }
 );
 
