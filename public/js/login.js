@@ -14,7 +14,7 @@ function submitForm(event) {
         usernameInputForm.reset();
         passwordInputForm.reset();
 
-        fetch(`api/users/login`, {
+        fetch(`/api/users/login`, {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' }
