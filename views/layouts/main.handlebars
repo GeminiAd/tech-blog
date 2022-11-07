@@ -19,7 +19,11 @@
             <ul>
                 <li class="p-5"><a href="/">Home</a></li>
                 <li class="p-5"><a href="/">Dashboard</a></li>
+                {{#if loggedIn}}
+                <li class="p-5"><a href="/logout">Logout</a></li>
+                {{else}}
                 <li class="p-5"><a href="/login">Login</a></li>
+                {{/if}}
             </ul>
         </nav>
     </header>

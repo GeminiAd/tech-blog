@@ -15,7 +15,8 @@ router.get(`/`, (req, res) => {
             const blogPosts = rawBlogPosts.map((rawBlogPost) => rawBlogPost.get({ plain: true }));
 
             res.render('home', {
-                blogPosts
+                blogPosts,
+                loggedIn: req.session.loggedIn
             });
         })
         .catch((error) => {
