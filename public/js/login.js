@@ -4,7 +4,9 @@ const loginButton = document.getElementById('login-button');
 const usernameInputForm = document.getElementById('username-input-form');
 const passwordInputForm = document.getElementById('password-input-form');
 
-function loginButtonOnClick(event) {
+function submitForm(event) {
+    event.preventDefault();
+
     const username = usernameInputElement.value.trim();
     const password = passwordInputElement.value.trim();
 
@@ -30,4 +32,6 @@ function loginButtonOnClick(event) {
     }
 }
 
-loginButton.addEventListener('click', loginButtonOnClick);
+loginButton.addEventListener('click', submitForm);
+usernameInputForm.addEventListener('submit', submitForm);
+passwordInputForm.addEventListener('submit', submitForm);
