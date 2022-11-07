@@ -88,11 +88,13 @@ h1 {
 /* Prevent color change to bootstrap's primary button color on hover */
 .btn-custom:hover {
     background-color: var(--dark-hover);
+    color: var(--light);
 }
 
 /* Prevent color change to bootstrap's primary button color on mousedown hold */
 .btn-custom:active:hover {
     background-color: var(--dark-hover);
+    color: var(--light);
 }
 
 a {
@@ -110,4 +112,8 @@ a:hover {
 
 #logout-link:hover {
     cursor: pointer;
+}
+
+.grey {
+    color: grey;
 }
