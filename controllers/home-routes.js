@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { BlogPost, User } = require('../models');
+const { BlogPostComment, BlogPost, User } = require('../models');
 
 router.get(`/`, (req, res) => {
     BlogPost.findAll({
@@ -7,12 +7,23 @@ router.get(`/`, (req, res) => {
             {
                 model: User,
                 attributes: ["user_name"]
+            },
+            {
+                model: BlogPostComment,
+                include: [
+                    {
+                        model: User,
+                        attributes: ["user_name"]
+                    }
+                ]
             }
         ]
     })
         .then((rawBlogPosts) => {
 
-            const blogPosts = rawBlogPosts.map((rawBlogPost) => rawBlogPost.get({ plain: true }));
+            const blogPosts = rawBlogPosts.map((rawBlogPost) => {
+                return rawBlogPost.get({ plain: true });
+            });
 
             res.render('home', {
                 blogPosts,
