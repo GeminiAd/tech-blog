@@ -1,5 +1,5 @@
 {{#each blogPosts as |blogPost|}}
-{{> blog-post-details}}
+{{> blog-post-details loggedIn=../this.loggedIn userName=../this.userName}}
 {{#each blogPost.blog_post_comments as |blogPostComment|}}
 {{> blog-post-comment-details}}
 {{/each}}

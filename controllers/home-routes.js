@@ -27,7 +27,8 @@ router.get(`/`, (req, res) => {
 
             res.render('home', {
                 blogPosts,
-                loggedIn: req.session.loggedIn
+                loggedIn: req.session.loggedIn,
+                userName: req.session.userName
             });
         })
         .catch((error) => {
