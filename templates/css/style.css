@@ -117,3 +117,13 @@ a:hover {
 .grey {
     color: grey;
 }
+
+.update-post-btn {
+    background-color: grey;
+    color: var(--light);
+}
+
+.update-post-btn:hover {
+    background-color: var(--dark);
+    color: var(--light);
+}
