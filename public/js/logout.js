@@ -4,7 +4,7 @@ const logoutLinkElement = document.getElementById('logout-link');
 const MAX_IDLE_TIME = 60000;
 
 function logout() {
-    fetch(`api/users/logout`, {
+    fetch(`/api/users/logout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
     })
@@ -22,7 +22,7 @@ function logout() {
 }
 
 function logoutAfterIdle() {
-    fetch(`api/users/logout`, {
+    fetch(`/api/users/logout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
     })
