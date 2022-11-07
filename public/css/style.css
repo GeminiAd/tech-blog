@@ -103,3 +103,11 @@ a {
 a:hover {
     color: var(--light);
 }
+
+#logout-link {
+    color: var(--light);
+}
+
+#logout-link:hover {
+    cursor: pointer;
+}
