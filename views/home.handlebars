@@ -1,3 +1,6 @@
 {{#each blogPosts as |blogPost|}}
 {{> blog-post-details}}
+{{#each blogPost.blog_post_comments as |blogPostComment|}}
+{{> blog-post-comment-details}}
+{{/each}}
 {{/each}}
