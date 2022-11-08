@@ -78,9 +78,6 @@ router.get('/dashboard/posts/:id', (req, res) => {
                 res.status(404).json({message: "Cannot find a blog post with that ID!"});
             } else {
                 // If the user isn't the one who authored the blog post, redirect to the dashboard
-                console.log(rawBlogPost.user.id);
-                console.log(req.session.userID);
-
                 if (rawBlogPost.user.id !== req.session.userID) {
                     res.redirect('/dashboard');
                 } else {
@@ -138,6 +135,50 @@ router.get('/posts/:id', (req, res) => {
                 console.log(error);
                 res.status(500).json(error);
             });
+    }
+});
+
+/* Route to the edit comments page. */
+router.get('/comments/:id', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    } else {
+        BlogPostComment.findByPk(req.params.id, {
+            include: [
+            {
+                model: User,
+                attributes: ["id"]
+            },
+            {
+                model: BlogPost,
+                include: [
+                    {
+                        model: User,
+                        attributes: ["user_name"]
+                    }
+                ]
+            }]
+        })
+        .then((rawBlogPostComment) => {
+            if (!rawBlogPostComment) {
+                res.status(404).json({message: "Cannot find a blog post with that ID!"});
+            } else {
+                if (rawBlogPostComment.user.id !== req.session.userID) {
+                    res.redirect('/');
+                } else {
+                    const blogPostComment = rawBlogPostComment.get({ plain : true });
+
+                    res.render('edit-blog-post-comment', {
+                        blogPostComment,
+                        loggedIn: req.session.loggedIn
+                    });
+                }
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json(error);
+        });
     }
 });
 
