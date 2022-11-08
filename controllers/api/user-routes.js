@@ -9,7 +9,6 @@ router.post('/', (req, res) => {
         password: req.body.password
     })
     .then((user) => {
-        console.log(user.user_name);
         req.session.save(() => {
             req.session.loggedIn = true;
             req.session.userName = user.user_name;
