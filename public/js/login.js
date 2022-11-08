@@ -3,6 +3,13 @@ const passwordInputElement = document.getElementById('password-input');
 const loginButton = document.getElementById('login-button');
 const usernameInputForm = document.getElementById('username-input-form');
 const passwordInputForm = document.getElementById('password-input-form');
+const signupButton = document.getElementById('signup-button');
+
+function redirectToSignupPage(event) {
+    event.preventDefault();
+
+    document.location.replace('/signup');
+}
 
 function submitForm(event) {
     event.preventDefault();
@@ -35,3 +42,5 @@ function submitForm(event) {
 loginButton.addEventListener('click', submitForm);
 usernameInputForm.addEventListener('submit', submitForm);
 passwordInputForm.addEventListener('submit', submitForm);
+
+signupButton.addEventListener('click', redirectToSignupPage);
