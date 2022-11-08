@@ -131,3 +131,15 @@ a:hover {
     background-color: var(--dark);
     color: var(--light);
 }
+
+@media (max-width: 768px) {
+    li {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 576px) {
+    li {
+        font-size: 18px;
+    }
+}

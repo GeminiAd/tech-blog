@@ -22,8 +22,6 @@ ul {
 }
 
 li {
-    /* color: var(--light); */
-
     display: inline;
 
     font-size: 28px;
@@ -38,7 +36,6 @@ h1 {
     width: fit-content;
 
     padding: .25em .7em;
-    margin-left: 1.5em;
 
     border-radius: 15px;
 
@@ -130,4 +127,16 @@ a:hover {
 .update-post-btn:hover {
     background-color: var(--dark);
     color: var(--light);
+}
+
+@media (max-width: 768px) {
+    li {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 576px) {
+    li {
+        font-size: 18px;
+    }
 }
