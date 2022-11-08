@@ -37,6 +37,31 @@ router.get(`/`, (req, res) => {
         });
 });
 
+router.get('/dashboard', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    } else {
+        BlogPost.findAll({
+            where: {
+                user_id: req.session.userID
+            }
+        })
+        .then((rawBlogPosts) => {
+            const userBlogPosts = rawBlogPosts.map(rawBlogPost => rawBlogPost.get({ plain: true }));
+
+            res.render('dashboard', {
+                userBlogPosts,
+                loggedIn: req.session.loggedIn,
+                dashboard: true
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json(error);
+        });
+    }
+});
+
 router.get('/posts/:id', (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/login');
