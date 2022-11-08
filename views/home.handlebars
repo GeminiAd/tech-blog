@@ -1,6 +1,6 @@
 {{#each blogPosts as |blogPost|}}
 {{> blog-post-details loggedIn=../this.loggedIn userName=../this.userName}}
 {{#each blogPost.blog_post_comments as |blogPostComment|}}
-{{> blog-post-comment-details}}
+{{> blog-post-comment-details blogPostComment loggedIn=../../this.loggedIn userName=../../this.userName}}
 {{/each}}
 {{/each}}

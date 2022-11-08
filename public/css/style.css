@@ -118,6 +118,10 @@ a:hover {
     color: grey;
 }
 
+.background-grey {
+    background-color: oldlace;
+}
+
 .update-post-btn {
     background-color: grey;
     color: var(--light);
