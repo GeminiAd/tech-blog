@@ -22,4 +22,28 @@ router.post('/', (req, res) => {
     }
 });
 
+/* Edit a comment route. */
+router.put('/:id', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    } else {
+        BlogPostComment.update({ content: req.body.content }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(([rowsAffected, poop]) => {
+            if (!rowsAffected) {
+                res.status(400).json({ message: "No comment updated!" });
+            } else {
+                res.status(200).json(rowsAffected);
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json(error);
+        });
+    }
+});
+
 module.exports = router;
