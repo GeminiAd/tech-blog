@@ -20,7 +20,6 @@ router.get(`/`, (req, res) => {
         ]
     })
         .then((rawBlogPosts) => {
-
             const blogPosts = rawBlogPosts.map((rawBlogPost) => {
                 return rawBlogPost.get({ plain: true });
             });
