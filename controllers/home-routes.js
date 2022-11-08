@@ -62,6 +62,31 @@ router.get('/dashboard', (req, res) => {
     }
 });
 
+router.get('/dashboard/posts/:id', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    } else {
+        BlogPost.findByPk(req.params.id)
+        .then((rawBlogPost) => {
+            if (!rawBlogPost) {
+                res.status(404).json({message: "Cannot find a blog post with that ID!"});
+            } else {
+                const blogPost = rawBlogPost.get({ plain : true });
+
+                res.render('edit-blog-post', {
+                    blogPost,
+                    loggedIn: req.session.loggedIn,
+                    dashboard: true
+                });
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json(error);
+        });
+    }
+});
+
 router.get('/posts/:id', (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/login');
