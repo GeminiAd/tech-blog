@@ -7,8 +7,7 @@ const deleteBlogPostButton = document.getElementById('delete-post-button');
 
 function deleteBlogPost(event) {
     event.preventDefault();
-    console.log("DELETING BLOG POST");
-
+    
     const pathArray = window.location.pathname.split('/');
     let postID = parseInt(pathArray.pop());
     if (!postID) {
