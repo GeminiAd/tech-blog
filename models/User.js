@@ -8,6 +8,7 @@ class User extends Model {
     }
 }
 
+/* Each user has a unique ID, a username, and a password. The password is hashed before saving to the database. */
 User.init(
     {
         id: {

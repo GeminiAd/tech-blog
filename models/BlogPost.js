@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class BlogPost extends Model { }
 
+/* Each blog post has a unique ID, a title and content, and the user_id of the user that posted the BlogPost. */
 BlogPost.init(
     {
         id: {
