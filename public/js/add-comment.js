@@ -13,9 +13,9 @@ function submitComments(event) {
             postID = parseInt(pathArray.pop());
         }
 
-        fetch(`/api/posts/${postID}/comments`, {
+        fetch(`/api/comments`, {
             method: 'POST',
-            body: JSON.stringify({ content: comments }),
+            body: JSON.stringify({ content: comments, blogPostID: postID }),
             headers: { 'Content-Type': 'application/json' }
         })
         .then((response) => {
