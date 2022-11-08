@@ -8,8 +8,10 @@ function submitComments(event) {
         commentTextareaElement.value = '';
 
         const pathArray = window.location.pathname.split('/');
-        const postID = parseInt(pathArray.pop());
-        console.log(postID);
+        let postID = parseInt(pathArray.pop());
+        if (!postID) {
+            postID = parseInt(pathArray.pop());
+        }
 
         fetch(`/api/posts/${postID}/comments`, {
             method: 'POST',
