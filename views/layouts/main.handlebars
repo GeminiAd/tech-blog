@@ -14,11 +14,15 @@
 
 <body>
     <header class="d-flex flex-row justify-content-between align-items-center">
+        {{#if dashboard}}
+        <h1>Dashboard</h1>
+        {{else}}
         <h1>Tech Blog</h1>
+        {{/if}}
         <nav>
             <ul>
                 <li class="p-5"><a href="/">Home</a></li>
-                <li class="p-5"><a href="/">Dashboard</a></li>
+                <li class="p-5"><a href="/dashboard">Dashboard</a></li>
                 {{#if loggedIn}}
                 <li class="p-5"><a id="logout-link">Logout</a></li>
                 {{else}}
