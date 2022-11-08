@@ -5,6 +5,32 @@ const editContentInputForm = document.getElementById('content-input-form');
 const editBlogPostButton = document.getElementById('edit-post-button');
 const deleteBlogPostButton = document.getElementById('delete-post-button');
 
+function deleteBlogPost(event) {
+    event.preventDefault();
+    console.log("DELETING BLOG POST");
+
+    const pathArray = window.location.pathname.split('/');
+    let postID = parseInt(pathArray.pop());
+    if (!postID) {
+        postID = parseInt(pathArray.pop());
+    }
+
+    fetch(`/api/posts/${postID}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then((response) => {
+        if (response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            alert("Failed to delete post");
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+}
+
 function editBlogPost(event) {
     event.preventDefault();
     
@@ -42,3 +68,4 @@ function editBlogPost(event) {
 editTitleInputForm.addEventListener('submit', editBlogPost);
 editContentInputForm.addEventListener('submit', editBlogPost);
 editBlogPostButton.addEventListener('click', editBlogPost);
+deleteBlogPostButton.addEventListener('click', deleteBlogPost);

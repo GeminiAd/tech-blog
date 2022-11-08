@@ -51,4 +51,29 @@ router.put('/:id', (req, res) => {
     }
 });
 
+/* Delete a blog post */
+router.delete('/:id', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    } else {
+        BlogPost.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then((numDestroyedRows) => {
+            // If no rows were destroyed, there's a problem with the request.
+            if (!numDestroyedRows) {
+                res.status(400).json({ message: "Error: no blog posts deleted" });
+            } else {
+                res.status(200).json(numDestroyedRows);
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json(error);
+        });
+    }
+});
+
 module.exports = router;
