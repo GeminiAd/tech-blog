@@ -1,5 +1,4 @@
 function isAuthor(username) {
-    console.log(this);
     return this.user.user_name === username;
 }
 
