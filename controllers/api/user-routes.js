@@ -2,6 +2,8 @@ const { User } = require('../../models');
 
 const router = require('express').Router();
 
+/* Contains logic for creating, logging in, and logging out a user. */
+
 /* Create new user */
 router.post('/', (req, res) => {
     User.create({

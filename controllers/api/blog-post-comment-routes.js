@@ -2,6 +2,8 @@ const { BlogPostComment } = require('../../models');
 
 const router = require('express').Router();
 
+/* This file contains the routing logic for the api to modify, create, or delete blog post comment data. */
+
 /* Post new comment route */
 router.post('/', (req, res) => {
     if (!req.session.loggedIn) {

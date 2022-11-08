@@ -2,6 +2,8 @@ const { BlogPostComment, BlogPost } = require('../../models');
 
 const router = require('express').Router();
 
+/* This file contains the routing logic for modifying, creating, or deleting blog post data. */
+
 /* Create a blog post */
 router.post('/', (req, res) => {
     if (!req.session.loggedIn) {

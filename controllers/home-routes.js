@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { BlogPostComment, BlogPost, User } = require('../models');
 
+/* Route to the homepage. */
 router.get(`/`, (req, res) => {
     BlogPost.findAll({
         include: [
@@ -187,6 +188,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+/* Route to the signup page. */
 router.get('/signup', (req, res) => {
     res.render('signup');
 })
