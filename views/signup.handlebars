@@ -1,23 +1,25 @@
-        <div class="card shadow-lg m-4 m-lg-5">
-            <div class="card-header">
-                <h3 class="card-title m-1">Sign Up</h3>
+<div class="card shadow-lg m-4 m-lg-5">
+    <div class="card-header">
+        <h3 class="card-title m-1">Sign Up</h3>
+    </div>
+    <div class="card-body">
+        <form id="username-input-form" class="p-2">
+            <label for="username-input" class="form-label card-text">Username</label>
+            <input type="text" class="form-control shadow" id="username-input">
+        </form>
+        <form id="password-input-form" class="p-2">
+            <label for="password-input" class="form-label card-text">Password (must be at least 6 characters long)</label>
+            <input type="password" class="form-control shadow" id="password-input">
+        </form>
+        <div class="container-fluid p-3">
+            <div class="row d-flex justify-content-between">
+                <button class="btn btn-custom shadow col-10 col-md-6"
+                    id="signup-button">Sign Up</button>
+                <button class="btn btn-custom shadow col-1 col-md-1"
+                    id="login-button">Login</button>
             </div>
-            <div class="card-body">
-                <form id="username-input-form" class="p-2">
-                    <label for="username-input" class="form-label card-text">Username</label>
-                    <input type="text" class="form-control shadow" id="username-input">
-                </form>
-                <form id="password-input-form" class="p-2">
-                    <label for="password-input" class="form-label card-text">Password</label>
-                    <input type="password" class="form-control shadow" id="password-input">
-                </form>
-                <div class="container-fluid p-3">
-                    <div class="row d-flex justify-content-between">
-                        <button class="btn btn-custom shadow col-10 col-md-6"
-                            id="signup-button">Sign Up</button>
-                        <button class="btn btn-custom shadow col-1 col-md-1"
-                            id="login-button">Login</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+         </div>
+    </div>
+</div>
+
+ <script src="/js/signup.js"></script>
