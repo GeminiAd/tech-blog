@@ -1,11 +1,11 @@
-<div class="container-fluid mb-5">
+<div class="container-fluid mb-4 mb-sm-5">
     {{#each userBlogPosts as |blogPost|}}
     {{> user-blog-post-button blogPost loggedIn=loggedIn userName=userName}}
     {{/each}}
 </div>
 <div class="container-fluid">
     <div class="row mx-3 mx-lg-4 mt-5 mb-0 d-flex justify-content-center">
-        <button class="btn btn-lg shadow btn-custom col-2" id="create-post-button">+ New Post</button>
+        <button class="btn btn-lg shadow btn-custom col-6 col-sm-4 col-md-3 col-lg-2" id="create-post-button">+ New Post</button>
     </div>
 </div>
 
