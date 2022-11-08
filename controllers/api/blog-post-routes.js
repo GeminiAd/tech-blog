@@ -22,6 +22,26 @@ router.post('/:id/comments', (req, res) => {
     }
 });
 
+/* Create a blog post */
+router.post('/', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    } else {
+        BlogPost.create({
+            title: req.body.title,
+            content: req.body.content,
+            user_id: req.session.userID
+        })
+        .then((blogPost) => {
+            res.status(200).json(blogPost);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json(error);
+        })
+    }
+});
+
 /* Update a blog post */
 router.put('/:id', (req, res) => {
     if (!req.session.loggedIn) {
