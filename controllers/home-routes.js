@@ -37,6 +37,7 @@ router.get(`/`, (req, res) => {
         });
 });
 
+/* Dashboard page with all of the user's blog posts listed. */
 router.get('/dashboard', (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/login');
@@ -62,6 +63,7 @@ router.get('/dashboard', (req, res) => {
     }
 });
 
+/* Edit blog post page. */
 router.get('/dashboard/posts/:id', (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/login');
@@ -87,6 +89,19 @@ router.get('/dashboard/posts/:id', (req, res) => {
     }
 });
 
+/* Route to the create blog post page. */
+router.get('/dashboard/create', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    } else {
+        res.render('create-blog-post', {
+            dashboard: true,
+            loggedIn: req.session.loggedIn
+        });
+    }
+});
+
+/* Route to the add comment page. */
 router.get('/posts/:id', (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/login');
