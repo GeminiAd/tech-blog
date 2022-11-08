@@ -1,4 +1,4 @@
-const { BlogPostComment } = require('../../models');
+const { BlogPostComment, BlogPost } = require('../../models');
 
 const router = require('express').Router();
 
@@ -19,6 +19,35 @@ router.post('/:id/comments', (req, res) => {
                 console.log(error);
                 res.status(500).json(error);
             });
+    }
+});
+
+/* Update a blog post */
+router.put('/:id', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    } else {
+        BlogPost.update(
+            {
+                title: req.body.title,
+                content: req.body.content
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            })
+        .then(([rows, fields]) => {
+            if (!rows) {
+                res.status(400).json({ message: "Nothing updated!" });
+            } else {
+                res.status(200).json(rows);
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json(error);
+        });
     }
 });
 
