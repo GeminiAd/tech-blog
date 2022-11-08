@@ -67,18 +67,31 @@ router.get('/dashboard/posts/:id', (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/login');
     } else {
-        BlogPost.findByPk(req.params.id)
+        BlogPost.findByPk(req.params.id, {
+            include: [{
+                model: User,
+                attributes: ["id"]
+            }]
+        })
         .then((rawBlogPost) => {
             if (!rawBlogPost) {
                 res.status(404).json({message: "Cannot find a blog post with that ID!"});
             } else {
-                const blogPost = rawBlogPost.get({ plain : true });
+                // If the user isn't the one who authored the blog post, redirect to the dashboard
+                console.log(rawBlogPost.user.id);
+                console.log(req.session.userID);
 
-                res.render('edit-blog-post', {
-                    blogPost,
-                    loggedIn: req.session.loggedIn,
-                    dashboard: true
-                });
+                if (rawBlogPost.user.id !== req.session.userID) {
+                    res.redirect('/dashboard');
+                } else {
+                    const blogPost = rawBlogPost.get({ plain : true });
+
+                    res.render('edit-blog-post', {
+                        blogPost,
+                        loggedIn: req.session.loggedIn,
+                        dashboard: true
+                    });
+                }
             }
         })
         .catch((error) => {
