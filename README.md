@@ -14,11 +14,13 @@
 
 [Deployed application](https://salty-crag-65332.herokuapp.com/)
 
+![Tech Blog Desktop Demo](./images/tech-blog-desktop-demo.gif)
+
 ---
 
 ## Description
 
-This site is a tech blog, with users, blog posts, and comments. When you first visit the site, you're taken to the homepage where all blog posts are displayed. If you click on the login nav link at the top, you're taken to a page where you can sign up or log in. When you're logged in on the homepage, you can click on each blog post to go to a page where you can add a comment to that blog post. When logged in on the homepage, you can click on any comment that you posted and you're taken to a page where you can edit or delete the comment. If you're logged in you can click on the dashboard nav link at the top and you're taken to the dashboard, which is a page with all the posts that you authored and an add post button. If you click on a post in the dashboard, you're taken to a page where you can edit or delete that post. If you click on the add post button in the dashboard, you're taken to a page where you can create a post. Oh, and if you idle for too long, you're automatically logged out and taken back to the main page.
+This site is a tech blog, with users, blog posts, and comments. If you log in you can edit, create or delete posts and post comments. If you stay idle for more than five minutes, you're automatically logged out. You can sign up and make a new account as well.
 
 ## Key Features
 
@@ -32,13 +34,7 @@ This site is a tech blog, with users, blog posts, and comments. When you first v
 
 ## Usage
 
-When you first visit the home page, all blog posts and their comments are displayed:
-
-![Homepage](./images/homepage.png)
-
-If you click on either the dashboard or login nav link, you're taken to a login page where you can either login:
-
-![Login page](./images/login.png)
+When you first visit the site, you're taken to the homepage where all blog posts are displayed. If you click on the login nav link at the top, you're taken to a page where you can sign up or log in. When you're logged in on the homepage, you can click on each blog post to go to a page where you can add a comment to that blog post. When logged in on the homepage, you can click on any comment that you posted and you're taken to a page where you can edit or delete the comment. If you're logged in you can click on the dashboard nav link at the top and you're taken to the dashboard, which is a page with all the posts that you authored and an add post button. If you click on a post in the dashboard, you're taken to a page where you can edit or delete that post. If you click on the add post button in the dashboard, you're taken to a page where you can create a post. Oh, and if you idle for too long, you're automatically logged out and taken back to the main page.
 
 ## Technologies Used
 
