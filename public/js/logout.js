@@ -1,7 +1,7 @@
 const logoutLinkElement = document.getElementById('logout-link');
 
-/* One minute. */
-const MAX_IDLE_TIME = 60000;
+/* Five minutes. */
+const MAX_IDLE_TIME = 300000;
 
 /* Logic for the logout nav link at the top of the page. */
 function logout() {
