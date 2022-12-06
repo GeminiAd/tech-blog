@@ -24,7 +24,7 @@ This site is a tech blog, with users, blog posts, and comments. If you log in yo
 
 ## Key Features
 
-- Log in or sign up with a new account by creatig a new user.
+- Log in or sign up with a new account by creating a new user.
 - When you navigate away from the page your session information is saved so you don't have to login again.
 - When you're idle for a set time period, you are automatically logged out.
 - View all blog posts and comments and the date they were created on the home page.
